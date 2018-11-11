@@ -1,0 +1,8 @@
+# IDEA
+/bin/
+/*.ipr
+/*.iml
+/out/
+/*.iws
+.idea/*
+../../.idea/*
