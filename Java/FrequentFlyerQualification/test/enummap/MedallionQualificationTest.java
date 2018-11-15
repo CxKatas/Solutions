@@ -55,7 +55,7 @@ public class MedallionQualificationTest {
 
 	@Test
 	public void getQualificationStatus() {
-		assertEquals(expectedLevel, MedallionQualification.getLevel(miles, segments, dollars));
+		assertEquals(expectedLevel, MedallionQualification.getStatus(miles, segments, dollars));
 	}
 
 }

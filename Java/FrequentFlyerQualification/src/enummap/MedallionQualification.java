@@ -17,7 +17,7 @@ public class MedallionQualification {
 		MINIMUM_QUALIFICATION.put(Level.MEMBER, new int[] { 0, 0, 0 });
 	}
 
-	public static Level getLevel(int miles, int segments, int dollars) {
+	public static Level getStatus(int miles, int segments, int dollars) {
 		Level level = Level.MEMBER;
 		final int MILES = 0;
 		final int SEGMENTS = 1;
