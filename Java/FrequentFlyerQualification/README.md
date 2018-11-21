@@ -12,7 +12,7 @@ A leading airline determines frequent flyers qualification status using a combin
 The function that determines the qualification status looks like this:
 
 ```java
-public static Level getStatus(int miles, int segments, int dollars)
+public static Status get(int milesFlown, int segmentsFlown, int dollarsSpent) 
 ```
 
 Using the domain matrix below, design a set of test cases to cover the input domain for **Gold** *status*.
