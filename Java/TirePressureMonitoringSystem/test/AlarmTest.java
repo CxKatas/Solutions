@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 /****************************************************************************
@@ -23,40 +22,32 @@ public class AlarmTest {
 
 	private static final double HIGH_PRESSURE_THRESHOLD = 21;
 	private static final int LOW_PRESSURE_THRESHOLD = 17;
-	private static final double TOLERANCE = 0.01;
-	private SensorStub sensorStub;
-	private Alarm alarm;
-
-	@Before
-	public void setup() {
-		sensorStub = new SensorStub();
-		alarm = new Alarm(sensorStub);
-	}
+	private static final double TOLERANCE = 0.5;
 
 	@Test
 	public void tirePressureAboveTheMaximumWillTurnTheAlarmOn() {
-		sensorStub.pushNextPressurePsiValue(HIGH_PRESSURE_THRESHOLD + TOLERANCE);
+		Alarm alarm = new Alarm(new SensorStub(HIGH_PRESSURE_THRESHOLD + TOLERANCE));
 		alarm.check();
 		assertTrue(alarm.isAlarmOn());
 	}
 
 	@Test
 	public void tirePressureAtTheMaximumWillNotTurnTheAlarmOn() {
-		sensorStub.pushNextPressurePsiValue(HIGH_PRESSURE_THRESHOLD);
+		Alarm alarm = new Alarm(new SensorStub(HIGH_PRESSURE_THRESHOLD));
 		alarm.check();
 		assertFalse(alarm.isAlarmOn());
 	}
 
 	@Test
 	public void tirePressureAtTheMinimumWillNotTurnTheAlarmOn() {
-		sensorStub.pushNextPressurePsiValue(LOW_PRESSURE_THRESHOLD);
+		Alarm alarm = new Alarm(new SensorStub(LOW_PRESSURE_THRESHOLD));
 		alarm.check();
 		assertFalse(alarm.isAlarmOn());
 	}
 
 	@Test
 	public void tirePressureBelowMinimumWillTurnTheAlarmOn() {
-		sensorStub.pushNextPressurePsiValue(LOW_PRESSURE_THRESHOLD - TOLERANCE);
+		Alarm alarm = new Alarm(new SensorStub(LOW_PRESSURE_THRESHOLD - TOLERANCE));
 		alarm.check();
 		assertTrue(alarm.isAlarmOn());
 	}

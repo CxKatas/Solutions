@@ -17,15 +17,19 @@ public class SensorStub implements TirePressureSensor {
 
 	private double nextPsiValue;
 
+	/**
+	 * @param nextPsiValue
+	 */
+	public SensorStub(double nextPsiValue) {
+		super();
+		this.nextPsiValue = nextPsiValue;
+	}
+
 	/* (non-Javadoc)
 	 * @see TirePressureSensor#popNextPressurePsiValue()
 	 */
 	@Override
 	public double popNextPressurePsiValue() {
 		return nextPsiValue;
-	}
-
-	public void pushNextPressurePsiValue(double psiValue) {
-		nextPsiValue = psiValue;
 	}
 }
