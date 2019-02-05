@@ -1,0 +1,1 @@
+Based on https://www.hindsightsoftware.com/blog/cucumber-jvm-intellij
